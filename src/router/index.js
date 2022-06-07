@@ -26,14 +26,9 @@ const routes = [{
   path: '/kalender',
   name: 'PlanerKalender',
   component: PlanerKalender,
-}
+}];
 
-
-];
-
-const router = createRouter({
+export default createRouter({
   history: createWebHistory(),
   routes,
-})
-
-export default router;
+});
