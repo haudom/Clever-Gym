@@ -11,8 +11,6 @@
       </div>
     </nav>
     <div class="container containerMainView" style="width: 100%;height: 98%;margin-bottom: 0;">
-
-
       <router-link to="/training" class="btn-big btn" role="button">
         Start Training
       </router-link>

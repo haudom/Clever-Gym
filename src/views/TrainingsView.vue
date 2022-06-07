@@ -3,96 +3,101 @@
     <h1>Training</h1>
   </div>
   <div class="swipe-area round-box">
-    <h2 style="margin-top: 5%;">Liegestütz</h2>  
+    <h2 style="margin-top: 5%;">Liegestütz</h2>
     <img src="../assets/logo.png" class="swipe-element-child">
-    <div class="swipe-element-child">Dies ist eine sehr einfache Übung. Stütze dich auf deine Arme und mach Liegestütze.</div>
-
-
-    <div class="btn-swipe">
-        <button class="btn-swipe-btn">+</button>
-        <h3>25</h3>
-        <button class="btn-swipe-btn">-</button>
+    <div class="swipe-element-child">Dies ist eine sehr einfache Übung. Stütze dich auf deine Arme und mach Liegestütze.
     </div>
 
     <div class="btn-swipe">
-        <button class="btn-swipe-btn">+</button>
-        <h3>25</h3>
-        <button class="btn-swipe-btn">-</button>
+      <button class="btn-swipe-btn">+</button>
+      <h3>25</h3>
+      <button class="btn-swipe-btn">-</button>
     </div>
 
+    <div class="btn-swipe">
+      <button class="btn-swipe-btn">+</button>
+      <h3>25</h3>
+      <button class="btn-swipe-btn">-</button>
+    </div>
 
   </div>
-  
+
 </template>
 
 <script>
 import { mapStores } from 'pinia';
-import { useLocalStore } from '../store/local.storage';
+import { useCalendarStore } from '../store/calendar.store';
 
 export default {
-   mounted() {
-       this.training = this.localStore.calendar.weeks.days.trainingsPlan.clone(); //@ Christian: Kannst du das bitte exestierend machen?
-   },
+  mounted() {
+    this.training = this.calendar.weeks.days.trainingsPlan.clone(); //@ Christian: Kannst du das bitte exestierend machen?
+
+    // speichere die Kalenderdaten bei Verändernung in localStorage 
+    this.calendar.$subscribe((_, state) => {
+      localStorage.setItem("calendar", JSON.stringify(state));
+    });
+  },
   components: {
-      
+
   },
   methods: {
-      swipeSeriesFinished(){
-   //     this.training.
-      },
-      swipeSeriesSkip(){
+    swipeSeriesFinished() {
+      //     this.training.
+    },
+    swipeSeriesSkip() {
 
-      },
-      swipeExerciseFinished(){
+    },
+    swipeExerciseFinished() {
 
-      }      
+    }
   },
   data: () => ({
-      training: []
+    training: []
   }),
   computed: {
-    localStore: mapStores(useLocalStore).localStore
-  }
+    calendar: mapStores(useCalendarStore).calendarStore,
+  },
 }
 </script>
 
 
 <style>
-html{
-    background: #cccccc;
+html {
+  background: #cccccc;
 }
 
-.btn-swipe{
-    margin: 10%;
-    display: inline-block;
-}
-.btn-swipe-btn{
-    width: 15vw;
-    border-radius: 30px;
-    display: inline-block;
+.btn-swipe {
+  margin: 10%;
+  display: inline-block;
 }
 
-.swipe-element-child{
-    width: 50vw;
-    height: 50vw;
-    margin: auto;
+.btn-swipe-btn {
+  width: 15vw;
+  border-radius: 30px;
+  display: inline-block;
 }
 
-.round-box{
-
-    border-radius: 30px;
-    box-shadow: 5px;
-}
-.swipe-area{
-    
-    background: #EEEEEE;
-    height: 75vh;
-    width: 80vw;
-    bottom: 5%;
-    overflow: hidden;
-    display: block;
-    margin-left: 10%;
-    margin-right: 10%;
+.swipe-element-child {
+  width: 50vw;
+  height: 50vw;
+  margin: auto;
 }
 
+.round-box {
+
+  border-radius: 30px;
+  box-shadow: 5px;
+}
+
+.swipe-area {
+
+  background: #EEEEEE;
+  height: 75vh;
+  width: 80vw;
+  bottom: 5%;
+  overflow: hidden;
+  display: block;
+  margin-left: 10%;
+  margin-right: 10%;
+}
 </style>

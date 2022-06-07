@@ -10,7 +10,7 @@ export const useSettingsStore = defineStore("settings", {
     age: null,
     // überschreibe die Standardwerte mit denen aus LocalStorage, falls verfügbar, ansonsten
     // übernehme einfach die properties aus einem leeren Objekt.
-    ...(localStorage.getItem("settings") ?? {})
+    ...JSON.parse(localStorage.getItem("settings") ?? "{}")
   }),
   actions: {
     /**
