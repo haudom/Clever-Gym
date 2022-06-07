@@ -4,11 +4,6 @@ import moment from "moment";
 
 export const useLocalStore = defineStore("local", {
   state: () => ({
-    settings: useStorage("settings", {
-      weight: null,
-      name: null,
-      age: null,
-    }),
     calendar: useStorage("calendar", {
       createdAt: moment().toISOString(),
       weeks: [],
