@@ -25,6 +25,37 @@
   
 </template>
 
+<script>
+import { mapStores } from 'pinia';
+import { useLocalStore } from '../store/local.storage';
+
+export default {
+   mounted() {
+       this.training = this.localStore.calendar.weeks.days.trainingsPlan.clone(); //@ Christian: Kannst du das bitte exestierend machen?
+   },
+  components: {
+      
+  },
+  methods: {
+      swipeSeriesFinished(){
+   //     this.training.
+      },
+      swipeSeriesSkip(){
+
+      },
+      swipeExerciseFinished(){
+
+      }      
+  },
+  data: () => ({
+      training: []
+  }),
+  computed: {
+    localStore: mapStores(useLocalStore).localStore
+  }
+}
+</script>
+
 
 <style>
 html{
