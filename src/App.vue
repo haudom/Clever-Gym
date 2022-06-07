@@ -10,13 +10,13 @@ import NavBarItem from "./components/NavBarItem.vue";
     </div>
     <NavBar class="w-100 fixed-bottom">
       <NavBarItem to="/">
-
+        <i class="fas fa-dumbbell"></i>
       </NavBarItem>
       <NavBarItem to="/statistiken">
-
+        <i class="fa-solid fa-chart-line" ></i>
       </NavBarItem>
       <NavBarItem to="/kalender">
-
+        <i class="fa-solid fa-calendar"></i>
       </NavBarItem>
     </NavBar>
   </div>

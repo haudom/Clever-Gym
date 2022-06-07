@@ -20,7 +20,7 @@
 </template>
 
 <style>
-.add-button{
+.add-button {
   height: 50px;
   width: 50px;
 }
@@ -57,45 +57,45 @@
 <script>
 
 const DayComponent = {
-    template: `
+  template: `
        
     `
 }
 
 export default {
-    components: {
-        'day': DayComponent
+  components: {
+    'day': DayComponent
+  },
+  data: () => ({
+    wochen: [{
+      day: 'Mo',
+      week: 1,
+      training: []
     },
-    data : () => ({
-        wochen: [{
-          day: 'Mo',
-          week: 1,
-          training: []
-        },
-        {
-          day: 'Di',
-          week: 2,
-          training: []
-        },{
-          day: 'Mi',
-          week: 1,
-          training: []
-        },
-        {
-          day: 'Do',
-          week: 2,
-          training: []
-        },{
-          day: 'Fri',
-          week: 1,
-          training: []
-        },
-        {
-          day: 'Sa',
-          week: 2,
-          training: []
-        }
-        ]
-    })
+    {
+      day: 'Di',
+      week: 2,
+      training: []
+    }, {
+      day: 'Mi',
+      week: 1,
+      training: []
+    },
+    {
+      day: 'Do',
+      week: 2,
+      training: []
+    }, {
+      day: 'Fri',
+      week: 1,
+      training: []
+    },
+    {
+      day: 'Sa',
+      week: 2,
+      training: []
+    }
+    ]
+  })
 }
 </script>
