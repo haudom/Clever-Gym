@@ -4,10 +4,10 @@
     <nav class="navbar navbar-light navbar-expand-md">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">CleverGym</a>
-        <a class="btn btn-primary btn-icon" role="button" href="Optionen.html"
+        <router-link to="/optionen" class="btn btn-primary btn-icon" role="button" href="Optionen.html"
           style="width: 56px;height: 56px;border-width: 0px;">
           <i class="la la-cog" style="color: var(--bs-gray-900);font-size: 32px;"></i>
-        </a>
+          </router-link>         
       </div>
     </nav>
     <div class="container containerMainView" style="width: 100%;height: 98%;margin-bottom: 0;">
