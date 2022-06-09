@@ -3,6 +3,7 @@ import { EXERCISES_BY_ID } from "../data/exercises";
 export default class ExercisePlan {
   constructor() {
     this.exerciseId = "liegestütz";
+    this.exerciseDescription ="Mach Liegestütz";
     this.sets = 3;
     this.weight = 5;
   }
