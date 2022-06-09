@@ -23,10 +23,10 @@
 
   </div>
   <div>
-   
-      <button class=".btn-tmp-Swipe" v-on:click="swipeSeriesSkip" >Überspringen</button>
-      <button class=".btn-tmp-Swipe"  v-on:click="swipeExerciseFinished">Übung fertig</button>
-      <button class=".btn-tmp-Swipe" v-on:click="swipeSeriesFinished">Satz fertig</button>
+      <button class="btn-tmp-Start" id="swipe-controls1" v-on:click="initTraining" >Bereit!</button>
+      <button class="btn-tmp-Swipe" id="swipe-controls2" v-on:click="swipeSeriesSkip" >Überspringen</button>
+      <button class="btn-tmp-Swipe" id="swipe-controls3" v-on:click="swipeExerciseFinished">Übung fertig</button>
+      <button class="btn-tmp-Swipe" id="swipe-controls4" v-on:click="swipeSeriesFinished">Satz fertig</button>
   </div>
 </template>
 
@@ -49,13 +49,19 @@ export default {
       localStorage.setItem("calendar", JSON.stringify(state));
     });
     
-    
   },
   components: {
 
   },
   methods: {
     
+    initTraining(){
+        document.getElementById("swipe-controls1").style.visibility = "hidden";
+        document.getElementById("swipe-controls2").style.visibility = "visible";
+        document.getElementById("swipe-controls3").style.visibility = "visible";
+        document.getElementById("swipe-controls4").style.visibility = "visible";
+        this.swipeSeriesFinished();
+    },
     swipeSeriesFinished() {
       if(this.exerciseIndex==-1)
         this.exerciseIndex=0;
@@ -69,10 +75,7 @@ export default {
 
     },
     swipeSeriesSkip() {
-      if(this.exerciseIndex==-1){
-        this.swipeSeriesFinished();
-        return;
-      }
+
       const training = this.training; //HÄsslich aber Faulheit
       const tmpExercise = training[this.exerciseIndex];
       training[this.exerciseIndex] = training[training.length-1];
@@ -86,10 +89,7 @@ export default {
       this.training = training;
     },
     swipeExerciseFinished() {
-      if(this.exerciseIndex==-1){
-        this.swipeSeriesFinished();
-        return;
-        }
+   
       //Speichere neue Werte zu Widerholungen und zu Gewichten
       this.training[this.exerciseIndex].weight = parseInt(document.getElementById("weight").innerHTML);
       this.training[this.exerciseIndex].repeat = parseInt(document.getElementById("repeat").innerHTML);
@@ -100,7 +100,7 @@ export default {
 
         this.exerciseName = "Good Job";
         this.exerciseDescription = "Du hast die heutige Übung beendet. Weiter so!"
-        this.exerciseImgUrl = "";
+        this.exerciseImgUrl = "/src/assets/initTraining.jpg";
         this.exerciseWeight = 100;
         this.exerciseRepeats = 100;
         return
@@ -118,9 +118,9 @@ export default {
     training: [],
     exerciseName: "",
         exerciseDescription: "",
-        exerciseImgUrl: "",
-        exerciseWeight: 25,
-        exerciseRepeats: 10,
+        exerciseImgUrl: "/src/assets/initTraining.jpg",
+        exerciseWeight: 0,
+        exerciseRepeats: 0,
   }),
   computed: {
     calendar: mapStores(useCalendarStore).calendarStore,
@@ -135,8 +135,15 @@ html {
   background: #cccccc;
 }
 
+.btn-tmp-Start{
+  position: absolute;
+  width: 40%;
+  left: 30vw;
+  right: 30vw;
+}
 .btn-tmp-Swipe{
-  width: 50px;
+ visibility: hidden;
+  width: 120px;
   height: 40px;
 }
 
