@@ -10,15 +10,15 @@
     </div>
 
     <div class="btn-swipe">
-      <button class="btn-swipe-btn">+</button>
+      <button class="btn-swipe-btn" v-on:click="exerciseWeight++">+</button>
       <h3 id="weight">{{exerciseWeight}}</h3>
-      <button class="btn-swipe-btn">-</button>
+      <button class="btn-swipe-btn" v-on:click="exerciseWeight--">-</button>
     </div>
 
     <div class="btn-swipe">
-      <button class="btn-swipe-btn">+</button>
+      <button class="btn-swipe-btn" v-on:click="exerciseRepeats++">+</button>
       <h3 id="repeat">{{exerciseRepeats}}</h3>
-      <button class="btn-swipe-btn">-</button>
+      <button class="btn-swipe-btn" v-on:click="exerciseRepeats--">-</button>
     </div>
 
   </div>
@@ -36,6 +36,7 @@ import { useCalendarStore } from '../store/calendar.store';
 import { exercises } from '../structures/ExercisesTMP_TEST';
 import { Statistics } from '../structures/ExercisesTMP_TEST';
 import { totalTrainingDays } from '../structures/ExercisesTMP_TEST';
+import {increaseTotalTraininDays} from '../structures/ExercisesTMP_TEST';
 
 
 //let amountExercises = 0;
@@ -65,7 +66,7 @@ export default {
         this.swipeSeriesFinished();
         //Statistic Setup:
 
-        totalTrainingDays++;
+        increaseTotalTraininDays();
         Statistics.forEach(element => {
             element.dataSet.push( {
                 trainingsDay: totalTrainingDays,
@@ -85,11 +86,11 @@ export default {
 
       //Statistics:
        const exercise = Statistics.filter(exerciseObj =>{
-        return exerciseObj.id = this.training[this.exerciseIndex].id;
+        return exerciseObj.id == this.training[this.exerciseIndex].id;
       })
-      exercise.weight = parseInt(this.exerciseWeight);
-      exercise.sentence++;
-      exercise.repeats = parseInt(this.exerciseRepeats);
+      exercise[0].dataSet[totalTrainingDays-1].weight = parseInt(this.exerciseWeight);
+      exercise[0].dataSet[totalTrainingDays-1].sentence++;
+      exercise[0].dataSet[totalTrainingDays-1].repeats = parseInt(this.exerciseRepeats);
 
 
       this.exerciseName         = this.training[this.exerciseIndex].id;

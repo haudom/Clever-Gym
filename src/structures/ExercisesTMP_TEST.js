@@ -50,6 +50,10 @@ export const exercises = [
 ];
 
 export var totalTrainingDays = 4; //Erhöt sich mit jedem Training
+export function increaseTotalTraininDays(){
+    totalTrainingDays++;
+}
+
 
 export const Statistics = [
 
