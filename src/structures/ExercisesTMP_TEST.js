@@ -13,7 +13,7 @@ export const exercises = [
             {
                 id: "Liegestütz",
                 description: "Mach sie",
-                imgUrl: "https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg",
+                imgUrl: "/src/assets/liegestutz.png",
                 weight: 25,
                 repeats: 10
             },
