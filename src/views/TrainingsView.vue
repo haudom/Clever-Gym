@@ -34,6 +34,8 @@
 import { mapStores } from 'pinia';
 import { useCalendarStore } from '../store/calendar.store';
 import { exercises } from '../structures/ExercisesTMP_TEST';
+import { Statistics } from '../structures/ExercisesTMP_TEST';
+import { totalTrainingDays } from '../structures/ExercisesTMP_TEST';
 
 
 //let amountExercises = 0;
@@ -61,18 +63,42 @@ export default {
         document.getElementById("swipe-controls3").style.visibility = "visible";
         document.getElementById("swipe-controls4").style.visibility = "visible";
         this.swipeSeriesFinished();
+        //Statistic Setup:
+
+        totalTrainingDays++;
+        Statistics.forEach(element => {
+            element.dataSet.push( {
+                trainingsDay: totalTrainingDays,
+                week: 3, //Static, hier muss noch variable eingebaut werden.
+                day: "Mon",
+                weight: 0,
+                repeats: 0,
+                sentence: 0,
+            });
+        });
     },
     swipeSeriesFinished() {
       if(this.exerciseIndex==-1)
         this.exerciseIndex=0;
       if(this.training.id = undefined)
       return;
+
+      //Statistics:
+       const exercise = Statistics.filter(exerciseObj =>{
+        return exerciseObj.id = this.training[this.exerciseIndex].id;
+      })
+      exercise.weight = parseInt(this.exerciseWeight);
+      exercise.sentence++;
+      exercise.repeats = parseInt(this.exerciseRepeats);
+
+
       this.exerciseName         = this.training[this.exerciseIndex].id;
       this.exerciseDescription  = this.training[this.exerciseIndex].description;
       this.exerciseImgUrl       = this.training[this.exerciseIndex].imgUrl;
       this.exerciseWeight       = this.training[this.exerciseIndex].weight;
       this.exerciseRepeats      = this.training[this.exerciseIndex].repeats;
-
+      
+     
     },
     swipeSeriesSkip() {
 
@@ -121,6 +147,10 @@ export default {
         exerciseImgUrl: "/src/assets/initTraining.jpg",
         exerciseWeight: 0,
         exerciseRepeats: 0,
+
+
+    statisticTrainingDay:0,
+
   }),
   computed: {
     calendar: mapStores(useCalendarStore).calendarStore,
