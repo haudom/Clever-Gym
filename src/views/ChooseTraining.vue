@@ -14,7 +14,7 @@
                 <h2>choose training</h2>
             </div>
         </div>
-        <div v-for="exercise in exercises">
+        <div v-for="exercise in exercises" :key="exercise">
             <ExerciseOverviewCard :exercise="exercise"></ExerciseOverviewCard>
         </div>
         

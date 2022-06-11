@@ -24,10 +24,22 @@ export class Exercise {
 export const EXERCISES = [
   new Exercise({
     id: "liegestütz",
-    url: "/",
+    url: "../assets/liegestutz.png",
     name: "Liegestütz",
     description: "Irgendeine Beschreibung",
   }),
+  new Exercise({
+    id: "bankdrücken",
+    url: "/",
+    name: "Bankdrücken",
+    description: "Irgendeine Beschreibung",
+  }),
+  new Exercise({
+    id: "fahrrad fahren",
+    url: "/",
+    name: "Fahrrad fahren",
+    description: "Irgendeine Beschreibung",
+  })
 ];
 
 /** @type {{ [id: string]: Exercise }} */

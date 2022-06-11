@@ -5,8 +5,10 @@
       <div class="row" style="height: 80px;">
         <div v-for="entry in wochen" class="col" style="width: 35px;padding-right: 2px;padding-left: 2px;" :key="entry.day">
           <h1 style="width: 40px;">{{ entry.day }}</h1>
+          <router-link to="/exercisePicker">
           <button id="addMon" class="btn btn-primary" type="button"
             style="width: 40px;padding: 0px;height: 40px;">+</button>
+            </router-link>
         </div>
       </div>
     </div>
