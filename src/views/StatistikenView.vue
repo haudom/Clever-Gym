@@ -1,6 +1,8 @@
 
 <template>
+  <h1>diese Woche</h1>
   <Statistik></Statistik>
+  <h1>Letzte Woche</h1>
   <Statistik></Statistik>
 </template>
 
