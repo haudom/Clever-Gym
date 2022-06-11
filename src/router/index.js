@@ -4,6 +4,7 @@ import OptionenView from '../views/OptionenView.vue';
 import StatistikenView from '../views/StatistikenView.vue';
 import TrainingsView from '../views/TrainingsView.vue';
 import PlanerKalender from '../views/PlanerKalenderView.vue';
+import ChooseTraining from '../views/ChooseTraining.vue';
 
 const routes = [{
   path: '/',
@@ -13,7 +14,13 @@ const routes = [{
   path: '/optionen',
   name: 'Optionen',
   component: OptionenView,
-}, {
+}, 
+{
+  path: '/exercisePicker',
+  name: 'ExercisePicker',
+  component: ChooseTraining,
+},
+{
   path: '/statistiken',
   name: 'Statistiken',
   component: StatistikenView,
