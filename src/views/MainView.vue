@@ -18,7 +18,7 @@
       </router-link>
 
       <router-link to="/statistiken" class="btn-big btn" role="button" style="background-color: white;">
-        <h1>Statistiken</h1>
+        <h1><Statistik></Statistik></h1>
         <h3>Brust Training</h3>
       </router-link>
         </div>
@@ -40,3 +40,10 @@
   height: 60vw;
 }
 </style>
+<script>
+import Statistik from '../components/Statistik.vue';
+export default{
+    
+    components: { Statistik }
+}
+</script>
