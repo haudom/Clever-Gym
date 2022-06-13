@@ -31,8 +31,8 @@
 </template>
 
 <script>
-import { mapStores } from 'pinia';
-import { useCalendarStore } from '../store/calendar.store';
+//import { mapStores } from 'pinia';
+//import { useCalendarStore } from '../store/calendar.store';
 import { exercises } from '../structures/ExercisesTMP_TEST';
 import { Statistics } from '../structures/ExercisesTMP_TEST';
 import { totalTrainingDays } from '../structures/ExercisesTMP_TEST';
@@ -48,9 +48,9 @@ export default {
     //this.training = this.calendar.weeks.days.trainingsPlan.clone(); //@Christian: Kannst du das bitte exestierend machen?
 
     // speichere die Kalenderdaten bei Verändernung in localStorage 
-    this.calendar.$subscribe((_, state) => {
-      localStorage.setItem("calendar", JSON.stringify(state));
-    });
+ //   this.calendar.$subscribe((_, state) => {
+  //    localStorage.setItem("calendar", JSON.stringify(state));
+  //  });
     
   },
   components: {
@@ -126,10 +126,15 @@ export default {
       if( this.exerciseIndex== this.training.length){
 
         this.exerciseName = "Good Job";
-        this.exerciseDescription = "Du hast die heutige Übung beendet. Weiter so!"
+        this.exerciseDescription = "Du hast die heutige Übungen beendet. Weiter so!"
         this.exerciseImgUrl = "/src/assets/initTraining.jpg";
         this.exerciseWeight = 100;
         this.exerciseRepeats = 100;
+
+        document.getElementById("swipe-controls2").style.visibility = "hidden";
+        document.getElementById("swipe-controls3").style.visibility = "hidden";
+        document.getElementById("swipe-controls4").style.visibility = "hidden";
+
         return
       }
 
@@ -153,9 +158,9 @@ export default {
     statisticTrainingDay:0,
 
   }),
-  computed: {
-    calendar: mapStores(useCalendarStore).calendarStore,
-  },
+ // computed: {
+ //   calendar: mapStores(useCalendarStore).calendarStore,
+ // },
 }                            
 
 </script>
