@@ -24,7 +24,7 @@ export class Exercise {
 export const EXERCISES = [
   new Exercise({
     id: "liegestütz",
-    url: "../assets/liegestutz.png",
+    url: "/src/assets/liegestutz.png",
     name: "Liegestütz",
     description: "Irgendeine Beschreibung",
   }),

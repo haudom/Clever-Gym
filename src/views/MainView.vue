@@ -1,49 +1,60 @@
 <template>
+  <AppView bg-grey header="CleverGym">
+    <template v-slot:action>
+      <router-link to="/optionen" class="settings-action">
+        <i class="fas fa-cog"></i>
+      </router-link>
+    </template>
 
-  <div>
-    <nav class="navbar navbar-light navbar-expand-md">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">CleverGym</a>
-        <router-link to="/optionen" class="btn btn-primary btn-icon" role="button" href="Optionen.html"
-          style="width: 56px;height: 56px;border-width: 0px;">
-          <i class="la la-cog" style="color: var(--bs-gray-900);font-size: 32px;"></i>
-        </router-link>
-      </div>
-    </nav>
-    <div class="container containerMainView" style="background-color: #eeeeee; width: 100%;height: 98%;margin-bottom: 0;">
-      <router-link to="/training" class="btn-big btn" role="button">
+    <router-link to="/training">
+      <AppCard type="black" center>
         <h1>Starte Training</h1>
         <img src="../assets/liegestutz.png" alt="" class="img-trainingsbutton">
         <h3>Brust Training</h3>
-      </router-link>
+      </AppCard>
+    </router-link>
 
-      <router-link to="/statistiken" class="btn-big btn" role="button" style="background-color: white;">
-        <h1><Statistik></Statistik></h1>
-        <h3>Brust Training</h3>
-      </router-link>
-        </div>
-  </div>
-
+    <router-link to="/statistiken">
+      <AppCard type="white" center>
+        <Statistik></Statistik>
+      </AppCard>
+    </router-link>
+  </AppView>
 </template>
 
 <style>
+.settings-action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--bs-gray-900);
+  font-size: 2rem;
+  height: 100%;
+}
+
 .btn-big {
-  background-color: black;
-  color: white;
   width: 80vw;
-  height: 80vw;margin-bottom: 10vw;
+  height: 80vw;
+  margin-bottom: 10vw;
   border-radius: 30px;
 }
-.img-trainingsbutton{
 
+.img-trainingsbutton {
   width: 60vw;
   height: 60vw;
 }
 </style>
+
 <script>
 import Statistik from '../components/Statistik.vue';
-export default{
-    
-    components: { Statistik }
+import AppCard from '../components/AppCard.vue';
+import AppView from '../components/AppView.vue';
+
+export default {
+  components: {
+    Statistik,
+    AppCard,
+    AppView
+}
 }
 </script>

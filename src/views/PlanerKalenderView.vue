@@ -1,18 +1,17 @@
 <template>
-  <div class="background">
-    <h1>Trainingskalender</h1>
-    <div class="container container-additional" style="width: 90%;padding-top: 20px;">
-      <div class="row" style="height: 80px;">
-        <div v-for="entry in wochen" class="col" style="width: 35px;padding-right: 2px;padding-left: 2px;" :key="entry.day">
-          <h1 style="width: 40px;">{{ entry.day }}</h1>
+  <AppView bg-grey header="Trainingskalender">
+    <AppCard center>
+      <div class="row">
+        <div v-for="entry in wochen" class="col" style="width: calc(100% / 7);padding-right: 2px;padding-left: 2px;" :key="entry.day">
+          <h2 style="width: 40px;">{{ entry.day }}</h2>
           <router-link to="/exercisePicker">
           <button id="addMon" class="btn btn-primary" type="button"
             style="width: 40px;padding: 0px;height: 40px;">+</button>
             </router-link>
         </div>
       </div>
-    </div>
-  </div>
+    </AppCard>
+  </AppView>
 </template>
 
 <style>
@@ -20,31 +19,17 @@
   height: 50px;
   width: 50px;
 }
-
-.background {
-  background: #EEEEEE;
-  height: 100vh;
-}
-
-.container-additional {
-  border-radius: 30px;
-  background: white;
-  box-shadow: 5px;
-  padding-bottom: 40px;
-}
 </style>
 
 <script>
-const DayComponent = {
-  template: `
-       
-    `
-}
+import AppView from '../components/AppView.vue'
+import AppCard from '../components/AppCard.vue'
 
 export default {
   components: {
-    'day': DayComponent
-  },
+    AppView,
+    AppCard
+},
   data: () => ({
     wochen: [{
       day: 'Mo',

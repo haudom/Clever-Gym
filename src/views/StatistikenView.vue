@@ -1,17 +1,18 @@
+<script setup>
+import Statistik from '../components/Statistik.vue';
+import AppView from '../components/AppView.vue';
+import AppCard from '../components/AppCard.vue';
+</script>
 
 <template>
+<AppView bg-grey header="Statistiken">
   <h1>diese Woche</h1>
-  <Statistik></Statistik>
+  <AppCard>
+    <Statistik></Statistik>
+  </AppCard>
   <h1>Letzte Woche</h1>
-  <Statistik></Statistik>
+  <AppCard>
+    <Statistik></Statistik>
+  </AppCard>
+</AppView>
 </template>
-
-<script>
-
-import Statistik from '../components/Statistik.vue';
-
-export default{
-
-    components: { Statistik }
-}
-</script>

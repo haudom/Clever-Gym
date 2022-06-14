@@ -1,8 +1,8 @@
 <script setup>
-import {useRoute} from 'vue-router';
-import {computed} from 'vue';
+import { useRoute } from 'vue-router';
+import { computed } from 'vue';
 
-const route=useRoute();
+const route = useRoute();
 
 const $props = defineProps({
   to: {
@@ -16,15 +16,17 @@ const active = computed(() => route.path === $props.to);
 
 <template>
   <router-link :to="$props.to"
-    class="d-flex align-items-center justify-content-center bg-white btn btn-primary nav-bar-item" style="flex-grow: 1"
+    class="d-flex align-items-center justify-content-center bg-white btn btn-primary app-tab" style="flex-grow: 1"
     :class="{ 'text-primary': active }">
     <slot></slot>
   </router-link>
 </template>
 
 <style>
-.nav-bar-item {
+.app-tab {
   color: var(--bs-gray-900);
-  font-size: 32px;
+  font-size: 2rem;
+  border: none;
+  box-shadow: none !important;
 }
 </style>

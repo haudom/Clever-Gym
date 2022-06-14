@@ -1,33 +1,33 @@
 <template>
-    <div class="container py-4 py-xl-5" id="back">
-        <div class="row mb-5">
-            <div class="col-md-8 col-xl-6 text-center mx-auto">
-                <h2>choose exercise</h2>
-            </div>
-        </div>
-        <div v-for="exercise in exercises" :key="exercise">
-            <ExerciseOverviewCard :exercise="exercise"></ExerciseOverviewCard>
-        </div>
-        
-    </div>
+<AppView header="Übungsfinder" bg-grey>
+    <ExerciseOverviewCard v-for="exercise in exercises" :key="exercise.id" :exercise="exercise"  />
+</AppView>
 </template>
+
 <style>
-#back{
-    background-color: gray;
-    
+#back {
+  background-color: gray;
 }
-
 </style>
-<script>
-import { EXERCISES } from '../data/exercises'
-import ExerciseOverviewCard from '../components/ExerciseOverviewCard.vue'
 
-    export default{
-    data() {
-        return {
-            exercises: EXERCISES
-        };
-    },
-    components: { ExerciseOverviewCard }
+<script>
+import {
+  EXERCISES
+} from '../data/exercises'
+import ExerciseOverviewCard from '../components/ExerciseOverviewCard.vue'
+import AppView from '../components/AppView.vue';
+import AppCard from '../components/AppCard.vue';
+
+export default {
+  data() {
+    return {
+      exercises: EXERCISES
+    };
+  },
+  components: {
+    ExerciseOverviewCard,
+    AppView,
+    AppCard
+}
 }
 </script>
