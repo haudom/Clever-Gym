@@ -18,9 +18,9 @@ export const exercises = [
                 repeats: 10
             },
             {
-                id: "Situps",
+                id: "Bankdrücken",
                 description: "Mach sie richtig!",
-                imgUrl: "https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg",
+                imgUrl: "/src/assets/liegestutz",
                 weight: 5,
                 repeats: 12
             }
