@@ -1,4 +1,5 @@
 <script setup>
+import { exercises } from '../structures/ExercisesTMP_TEST';
 const $props = defineProps({
     exercise: {
         type: Object,
@@ -6,8 +7,18 @@ const $props = defineProps({
     },
 });
 
-function addTraining() {
+function addTraining(name,description,img) {
+
     //TODO
+    exercises.find( elem => elem.id === "Do").trainingsPlan.push(
+        {
+                id: name,
+                description: description,
+                imgUrl: img,
+                weight: 10,
+                repeats: 10
+            }
+    )
 }
 </script>
 
@@ -18,9 +29,8 @@ function addTraining() {
             <div class="card">
                 <img class="card-img-top w-100 d-block fit-cover" style="height: 200px;" :src="$props.exercise.url">   
                 <div class="card-body p-4">
-                    <router-link to="/kalender">
-                        <p class="text-primary card-text mb-0" v-on:click="addTraining">+ADD</p>
-                    </router-link>
+                    
+                        <p class="text-primary card-text mb-0" v-on:click="addTraining($props.exercise.name,$props.exercise.description,$props.exercise.url)">+ADD</p>
                     <h4 class="card-title">{{ $props.exercise.name }}</h4>
                     <p class="card-text">{{ $props.exercise.description }}</p>
 
