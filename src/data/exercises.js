@@ -30,13 +30,13 @@ export const EXERCISES = [
   }),
   new Exercise({
     id: "bankdrücken",
-    url: "/",
+    url: "https://optimalefitness.de/wp-content/uploads/2019/12/bearded-man-bodybuilder-doing-bench-press-exercise-2021-09-04-08-19-03-utc-compressed-2048x1365.jpg",
     name: "Bankdrücken",
     description: "Irgendeine Beschreibung",
   }),
   new Exercise({
     id: "fahrrad fahren",
-    url: "/",
+    url: "https://img.freepik.com/fotos-kostenlos/muskuloeses-athletisches-bodybuilder-fitnessmodell-das-stationaeres-fahrrad-im-fitnessstudio-nahe-grossem-fenster-sitzt_91014-4230.jpg?w=2000",
     name: "Fahrrad fahren",
     description: "Irgendeine Beschreibung",
   })
