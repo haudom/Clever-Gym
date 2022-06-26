@@ -19,7 +19,7 @@ function addTraining() {
                 <img class="card-img-top w-100 d-block fit-cover" style="height: 200px;" :src="$props.exercise.url">   
                 <div class="card-body p-4">
                     <router-link to="/kalender">
-                        <p class="text-primary card-text mb-0" v-on:click="addTraining">+ADD</p>
+                        <p class="text-primary card-text mb-0" v-on:click="addTraining">+HINZUFÜGEN</p>
                     </router-link>
                     <h4 class="card-title">{{ $props.exercise.name }}</h4>
                     <p class="card-text">{{ $props.exercise.description }}</p>
