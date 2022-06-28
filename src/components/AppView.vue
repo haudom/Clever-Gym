@@ -1,5 +1,6 @@
 <script setup>
 import { useSlots } from 'vue';
+import { useRouter } from 'vue-router';
 
 const $props = defineProps({
   header: {
@@ -12,16 +13,33 @@ const $props = defineProps({
   bottomPadding: {
     type: [Number, String],
     default: null,
-  }
+  },
+  backButton: {
+    type: Boolean,
+    default: false,
+  },
 });
 
+const $emit = defineEmits(["back"]);
+
 const $slots = useSlots();
+
+const $router = useRouter();
+
+function backButtonClicked() {
+  $emit("back");
+  $router.go(-1);
+}
 </script>
 
 <template>
   <div class="app-view" :class="{ 'app-view-bg-grey': $props.bgGrey }" :style="{ 'padding-bottom': $props.bottomPadding ?? 0 }">
     <header v-if="$props.header || $slots.header || $slots.action">
-    <!-- Header Title -->
+      <div class="app-view-header-back" v-if="$props.backButton" @click="backButtonClicked">
+        <i class="fa-solid fa-arrow-left"></i>
+      </div>
+
+      <!-- Header Title -->
       <div class="app-view-header-text">
         <slot name="header" v-if="$slots.header"></slot>
         <h1 v-else>{{ $props.header }}</h1>
@@ -52,6 +70,7 @@ const $slots = useSlots();
 .app-view > header {
   display: flex;
   flex-direction: row;
+  gap: 1em;
   width: 100%;
 }
 .app-view > header > * {
@@ -64,6 +83,13 @@ const $slots = useSlots();
   padding-right: 1.5rem;
 }
 
+.app-view-header-back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--bs-gray-800);
+  font-size: 2rem;
+}
 .app-view-header-text {
   flex-grow: 1;
 }

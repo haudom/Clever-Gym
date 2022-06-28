@@ -1,5 +1,5 @@
 <template>
-  <AppView header="Training" bg-grey style="overflow: hidden; max-height: 100vh;">
+  <AppView header="Training" bg-grey style="overflow: hidden; max-height: 100vh;" back-button>
     <AppCard class="swipe-area">
       <h2 style="margin-top: 5%;">{{ exerciseName }}</h2>
       <img v-bind:src="exerciseImgUrl" class="swipe-element-child">

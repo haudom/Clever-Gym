@@ -7,7 +7,7 @@
     </template>
 
     <router-link to="/training">
-      <AppCard type="black"  class="btn-big" center style="background-color:black">
+      <AppCard type="black" class="btn-big" center style="background-color:black">
         <h1>Starte Training</h1>
         <img src="../assets/liegestutz.png" alt="" class="img-trainingsbutton">
         <h3>Brust Training</h3>
@@ -23,7 +23,6 @@
 </template>
 
 <style>
-html, body {margin: 0; height: 100%; overflow: hidden}
 .settings-action {
   display: flex;
   justify-content: center;
@@ -46,7 +45,8 @@ html, body {margin: 0; height: 100%; overflow: hidden}
   width: 80%;
   height: 80%;
 }
-h3{
+
+h3 {
   position: relative;
   bottom: 20px;
 }
@@ -62,6 +62,6 @@ export default {
     Statistik,
     AppCard,
     AppView
-}
+  }
 }
 </script>

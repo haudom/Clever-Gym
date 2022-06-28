@@ -4,7 +4,7 @@
       <div class="row">
         <div v-for="entry in wochen" class="col" style="width: calc(100% / 7);padding-right: 2px;padding-left: 2px;" :key="entry.day">
           <h2 style="width: 40px;">{{ entry.day }}</h2>
-          <router-link to="/exercisePicker">
+          <router-link to="/exercise-picker">
           <button id="addMon" class="btn btn-primary" type="button" v-on:click="setupNewTrainingDay(entry.day)"
             style="width: 40px;padding: 0px;height: 40px;">+</button>
             </router-link>

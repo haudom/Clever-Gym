@@ -3,7 +3,7 @@ import AppView from '../components/AppView.vue';
 </script>
 
 <template>
-  <AppView header="Einstellungen">
+  <AppView header="Einstellungen" back-button>
     <div>
       Name
       <input type="text">

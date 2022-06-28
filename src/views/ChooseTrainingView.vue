@@ -1,7 +1,7 @@
 <template>
-<AppView header="Übungsfinder" bg-grey>
-    <ExerciseOverviewCard v-for="exercise in exercises" :key="exercise.id" :exercise="exercise"  />
-</AppView>
+  <AppView header="Übungsfinder" bg-grey back-button>
+    <ExerciseOverviewCard v-for="exercise in exercises" :key="exercise.id" :exercise="exercise" />
+  </AppView>
 </template>
 
 <style>
@@ -28,6 +28,6 @@ export default {
     ExerciseOverviewCard,
     AppView,
     AppCard
-}
+  }
 }
 </script>
