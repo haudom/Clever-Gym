@@ -29,4 +29,12 @@ const active = computed(() => route.path === $props.to);
   border: none;
   box-shadow: none !important;
 }
+
+.app-tab:hover {
+  color: var(--bs-gray-900);
+}
+.app-tab:active {
+  color: var(--bs-gray-900);
+  background-color: var(--bs-gray-100) !important;
+}
 </style>

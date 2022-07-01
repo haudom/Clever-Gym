@@ -1,5 +1,5 @@
 <template>
-  <AppView bg-grey header="Trainingskalender">
+  <AppView bg-gray header="Trainingskalender">
     <AppCard center>
       <div class="row">
         <div v-for="entry in wochen" class="col" style="width: calc(100% / 7);padding-right: 2px;padding-left: 2px;" :key="entry.day">

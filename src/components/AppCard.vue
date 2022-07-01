@@ -22,8 +22,11 @@ const $props = defineProps({
 
 <style scoped>
 .app-card {
-  margin-bottom: 10vw;
-  border-radius: 30px;
+  border-radius: .5em;
+  border-radius: 1em;
+}
+.app-card:not(:last-child) {
+  margin-bottom: 1.5em;
 }
 
 .app-card-center {
@@ -31,7 +34,8 @@ const $props = defineProps({
 }
 
 .app-card-black {
-  background-color: #00061A;
-  color: #FFFFFF;
+  /* background-color: #00061A; */
+  background-color: var(--bs-black);
+  color: var(--bs-white);
 }
 </style>

@@ -13,45 +13,71 @@ import TrainingsView from '../views/TrainingsView.vue';
 import PlanerKalenderView from '../views/PlanerKalenderView.vue';
 import ChooseTrainingView from '../views/ChooseTrainingView.vue';
 
+/*
+ * Die Meta-Property "viewIndex" sagt dem Router, in welche Richtung eine
+ * Transition durchgeführt werden soll.
+ */
+
+/** @type {import('vue-router').RouteRecordRaw[]} */
 const routes = [{
-  name: "default-layout",
   path: "/",
   component: DefaultLayout,
 
   children: [{
     path: '',
-    name: 'index',
+    name: 'main',
+    meta: { viewIndex: 0 },
     component: MainView,
   }, {
     path: 'statistiken',
     name: 'statistiken',
+    meta: { viewIndex: 1 },
     component: StatistikenView,
   }, {
     path: 'kalender',
     name: 'kalender',
+    meta: { viewIndex: 2 },
     component: PlanerKalenderView,
   }]
 }, {
-  name: "no-tabs-layout",
   path: "/",
   component: NoTabsLayout,
 
   children: [{
     path: 'optionen',
     name: 'optionen',
+    meta: { viewIndex: 10 },
     component: OptionenView,
   }, {
     path: 'exercise-picker',
     name: 'exercise-picker',
+    meta: { viewIndex: 10 },
     component: ChooseTrainingView,
   }, {
     path: 'training',
     name: 'training',
+    meta: { viewIndex: 10 },
     component: TrainingsView,
   }]
 }];
 
-export default createRouter({
+const router = createRouter({
   history: createWebHistory(),
   routes,
 });
+
+// https://router.vuejs.org/guide/advanced/transitions.html#route-based-dynamic-transition
+router.beforeEach((to, from, next) => {
+  // tell the router transition in which direction it should transition
+  if (typeof from.meta.viewIndex === "undefined") {
+    to.meta.transition = ""; // Keine Transition
+  } else if (to.meta.viewIndex >= from.meta.viewIndex) {
+    to.meta.transition = "next";
+  } else {
+    to.meta.transition = "prev";
+  }
+
+  next();
+});
+
+export default router;

@@ -1,0 +1,81 @@
+/* Transition "fade" */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* Transition "scale-slide" nach rechts (next) und links (prev) */
+.scale-slide-next-enter-active,
+.scale-slide-next-leave-active,
+.scale-slide-prev-enter-active,
+.scale-slide-prev-leave-active {
+  transition: transform 0.15s ease-out,
+              opacity 0.15s ease;
+}
+
+.scale-slide-next-leave-active,
+.scale-slide-prev-enter-active {
+  z-index: 1;
+}
+.scale-slide-next-enter-active,
+.scale-slide-prev-leave-active {
+  z-index: 2;
+}
+
+.scale-slide-next-enter-from,
+.scale-slide-prev-leave-to {
+  transform: translate(100%, 0);
+}
+
+.scale-slide-next-enter-to,
+.scale-slide-prev-leave-from {
+  transform: translate(0, 0);
+}
+
+.scale-slide-next-leave-from,
+.scale-slide-prev-enter-to {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.scale-slide-next-leave-to,
+.scale-slide-prev-enter-from {
+  opacity: 0.5;
+  transform: scale(0.7);
+}
+
+/* Transition "slide" nach rechts (next) und links (prev) */
+.slide-next-enter-active,
+.slide-next-leave-active,
+.slide-prev-enter-active,
+.slide-prev-leave-active {
+  transition: transform 0.15s ease-out;
+
+  --translate-x: 0;
+  transform: translate(var(--translate-x), 0);
+}
+
+.slide-next-enter-from,
+.slide-prev-leave-to {
+  --translate-x: 100%;
+}
+
+.slide-next-enter-to,
+.slide-prev-leave-from {
+  --translate-x: 0%;
+}
+
+.slide-next-leave-from,
+.slide-prev-enter-to {
+  --translate-x: 0%;
+}
+
+.slide-next-leave-to,
+.slide-prev-enter-from {
+  --translate-x: -100%;
+}

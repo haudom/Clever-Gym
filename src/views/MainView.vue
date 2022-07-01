@@ -1,24 +1,26 @@
 <template>
-  <AppView bg-grey header="CleverGym">
+  <AppView bg-gray header="CleverGym">
     <template v-slot:action>
       <router-link to="/optionen" class="settings-action">
         <i class="fas fa-cog"></i>
       </router-link>
     </template>
 
-    <router-link to="/training">
-      <AppCard type="black" class="btn-big" center style="background-color:black">
-        <h1>Starte Training</h1>
-        <img src="../assets/liegestutz.png" alt="" class="img-trainingsbutton">
-        <h3>Brust Training</h3>
-      </AppCard>
-    </router-link>
+    <b-card-group deck class="d-flex flex-column">
+      <router-link to="/training" style="text-decoration: none;">
+        <AppCard type="black" class="main-card" center>
+          <h1>Starte Training</h1>
+          <img src="../assets/liegestutz.png" class="img-trainingsbutton">
+          <h3>Brust Training</h3>
+        </AppCard>
+      </router-link>
 
-    <router-link to="/statistiken">
-      <AppCard type="white" class="btn-big" center>
-        <Statistik></Statistik>
-      </AppCard>
-    </router-link>
+      <router-link to="/statistiken">
+        <AppCard type="white" class="main-card" center>
+          <Statistik></Statistik>
+        </AppCard>
+      </router-link>
+    </b-card-group>
   </AppView>
 </template>
 
@@ -32,22 +34,17 @@
   height: 100%;
 }
 
-.btn-big {
-  left: 5vw;
-  width: 80vw;
-  height: 80vw;
-  margin-bottom: 10%;
-  border-radius: 30px;
+.main-card {
+  max-width: 80vw;
+  width: 100%;
+  margin: 0 auto;
 }
 
-.img-trainingsbutton {
-  position: relative;
+.main-card .img-trainingsbutton {
   width: 80%;
-  height: 80%;
 }
 
-h3 {
-  position: relative;
+.main-card h3 {
   bottom: 20px;
 }
 </style>

@@ -4,19 +4,12 @@
   </AppView>
 </template>
 
-<style>
-#back {
-  background-color: gray;
-}
-</style>
-
 <script>
 import {
   EXERCISES
 } from '../data/exercises'
 import ExerciseOverviewCard from '../components/ExerciseOverviewCard.vue'
 import AppView from '../components/AppView.vue';
-import AppCard from '../components/AppCard.vue';
 
 export default {
   data() {
@@ -26,8 +19,7 @@ export default {
   },
   components: {
     ExerciseOverviewCard,
-    AppView,
-    AppCard
+    AppView
   }
 }
 </script>

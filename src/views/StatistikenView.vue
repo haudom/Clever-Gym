@@ -5,7 +5,7 @@ import AppCard from '../components/AppCard.vue';
 </script>
 
 <template>
-  <AppView bg-grey header="Statistiken">
+  <AppView bg-gray header="Statistiken">
     <h1>diese Woche</h1>
     <AppCard>
       <Statistik></Statistik>

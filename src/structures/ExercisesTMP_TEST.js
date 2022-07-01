@@ -1,11 +1,6 @@
-//Array mit allen Exercises die wir anbieten. Temp to test. 
-
-import { months } from "moment";
-
-
+// Array mit allen Exercises die wir anbieten. Temp to test. 
 
 export const exercises = [
-
     {
         id: "Mon",
         week: 1,
@@ -20,7 +15,7 @@ export const exercises = [
             {
                 id: "Bankdrücken",
                 description: "Mach sie richtig!",
-                imgUrl: "/src/assets/liegestutz",
+                imgUrl: "/src/assets/bankdrücken.jpg",
                 weight: 5,
                 repeats: 12
             }
@@ -46,19 +41,16 @@ export const exercises = [
             }
         ]
     }
-
 ];
 
 export var totalTrainingDays = 4; //Erhöt sich mit jedem Training
-export function increaseTotalTraininDays(){
+export function increaseTotalTraininDays() {
     totalTrainingDays++;
 }
 
-
 export const Statistics = [
-
     {
-        statsColor: '#04D79F',
+        statsColor: getComputedStyle(document.documentElement).getPropertyValue("--bs-teal"),
         id: "Liegestütz",
         dataSet: [
             {
@@ -95,7 +87,7 @@ export const Statistics = [
         ]
     },
     {
-        statsColor: '#55A080',
+        statsColor: getComputedStyle(document.documentElement).getPropertyValue("--bs-cyan"),
         id: "Situps",
         dataSet: [
             {
@@ -131,6 +123,4 @@ export const Statistics = [
             },
         ]
     }
-
-
-]
+];

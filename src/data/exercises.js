@@ -30,7 +30,7 @@ export const EXERCISES = [
   }),
   new Exercise({
     id: "bankdrücken",
-    url: "/src/assets/bearded-man-bodybuilder-doing-bench-press-exercise-2021-09-04-08-19-03-utc-compressed-2048x1365.jpg",
+    url: "/src/assets/bankdrücken.jpg",
     name: "Bankdrücken",
     description: "Irgendeine Beschreibung",
   }),

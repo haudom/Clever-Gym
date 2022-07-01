@@ -1,10 +1,15 @@
 <template>
-  <AppView header="Training" bg-grey style="overflow: hidden; max-height: 100vh;" back-button>
-    <AppCard class="swipe-area">
+  <AppView header="Training" bg-gray style="overflow: hidden; max-height: 100vh;" back-button>
+    <AppCard
+      center
+      class="swipe-area" 
+      v-touch:swipe.left="swipeSeriesSkip" 
+      v-touch:swipe.right="swipeSeriesFinished" 
+      v-touch:swipe.top="swipeExerciseFinished"
+    >
       <h2 style="margin-top: 5%;">{{ exerciseName }}</h2>
       <img v-bind:src="exerciseImgUrl" class="swipe-element-child">
-      <div class="swipe-element-child">{{ exerciseDescription }}
-      </div>
+      <div class="swipe-element-child">{{ exerciseDescription }}</div>
 
       <div class="btn-swipe">
         <button class="btn-swipe-btn" @click="exerciseWeight++">+</button>
@@ -18,22 +23,13 @@
         <button class="btn-swipe-btn" @click="exerciseRepeats--">-</button>
       </div>
     </AppCard>
-
-    <div class="training-tmp-buttons">
-      <button class="btn-tmp-Swipe" @click="swipeSeriesSkip">Überspringen</button>
-      <button class="btn-tmp-Swipe" @click="swipeExerciseFinished">Übung fertig</button>
-      <button class="btn-tmp-Swipe" @click="swipeSeriesFinished">Satz fertig</button>
-    </div>
   </AppView>
 </template>
 
 <script>
 //import { mapStores } from 'pinia';
 //import { useCalendarStore } from '../store/calendar.store';
-import { exercises } from '../structures/ExercisesTMP_TEST';
-import { Statistics } from '../structures/ExercisesTMP_TEST';
-import { totalTrainingDays } from '../structures/ExercisesTMP_TEST';
-import { increaseTotalTraininDays } from '../structures/ExercisesTMP_TEST';
+import { exercises, Statistics, totalTrainingDays, increaseTotalTraininDays } from '../structures/ExercisesTMP_TEST';
 import AppView from '../components/AppView.vue';
 import AppCard from '../components/AppCard.vue';
 

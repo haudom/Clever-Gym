@@ -1,19 +1,25 @@
 <script setup>
 import AppTabGroup from "../components/app-tabs/AppTabGroup.vue";
 import AppTab from "../components/app-tabs/AppTab.vue";
+
+function getTransition(route) {
+  return "slide-" + route.meta.transition;
+}
 </script>
 
 <template>
-  <div class="main-view">
-    <div class="main">
-      <transition name="fade">
-        <router-view class="main-view" style="padding-bottom: var(--app-tab-group-height)"></router-view>
-      </transition>
+  <div class="default-layout">
+    <div class="main-view-container">
+      <router-view v-slot="{ Component, route }">
+        <transition :name="getTransition(route)">
+          <component :is="Component" class="main-view" />
+        </transition>
+      </router-view>
     </div>
 
-    <AppTabGroup class="w-100 fixed-bottom" style="height: var(--app-tab-group-height);">
+    <AppTabGroup class="main-nav">
       <AppTab to="/">
-        <i class="fas fa-dumbbell"></i>
+        <i class="fa-solid fa-dumbbell"></i>
       </AppTab>
       <AppTab to="/statistiken">
         <i class="fa-solid fa-chart-line"></i>
@@ -24,3 +30,27 @@ import AppTab from "../components/app-tabs/AppTab.vue";
     </AppTabGroup>
   </div>
 </template>
+
+<style>
+.main-view-container {
+  overflow-x: hidden;
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.main-view {
+  top: 0;
+  left: 0;
+  position: absolute;
+  padding-bottom: var(--app-tabs-height);
+}
+
+.main-nav {
+  position: fixed;
+  top: calc(100vh - var(--app-tabs-height));
+  left: 0;
+  width: 100vw;
+  height: var(--app-tabs-height);
+}
+</style>

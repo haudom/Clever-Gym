@@ -7,12 +7,8 @@ const $props = defineProps({
     type: String,
     default: null,
   },
-  bgGrey: {
+  bgGray: {
     type: Boolean,
-  },
-  bottomPadding: {
-    type: [Number, String],
-    default: null,
   },
   backButton: {
     type: Boolean,
@@ -33,7 +29,7 @@ function backButtonClicked() {
 </script>
 
 <template>
-  <div class="app-view" :class="{ 'app-view-bg-grey': $props.bgGrey }" :style="{ 'padding-bottom': $props.bottomPadding ?? 0 }">
+  <div class="app-view" :class="{ 'app-view-bg-grey': $props.bgGray }">
     <header v-if="$props.header || $slots.header || $slots.action">
       <div class="app-view-header-back" v-if="$props.backButton" @click="backButtonClicked">
         <i class="fa-solid fa-arrow-left"></i>
@@ -61,10 +57,11 @@ function backButtonClicked() {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: var(--bs-body-bg);
 }
 
 .app-view-bg-grey {
-  background-color: #E5E5E5;
+  background-color: var(--bs-body-bg-dark);
 }
 
 .app-view > header {
