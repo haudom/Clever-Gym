@@ -1,5 +1,8 @@
 // Array mit allen Exercises die wir anbieten. Temp to test. 
 
+import liegeStutzImg from "../assets/liegestutz.png";
+import bankdrueckenImg from "../assets/bankdruecken.jpg";
+
 export const exercises = [
     {
         id: "Mon",
@@ -8,14 +11,14 @@ export const exercises = [
             {
                 id: "Liegestütz",
                 description: "Mach sie",
-                imgUrl: "/src/assets/liegestutz.png",
+                imgUrl: liegeStutzImg,
                 weight: 25,
                 repeats: 10
             },
             {
                 id: "Bankdrücken",
                 description: "Mach sie richtig!",
-                imgUrl: "/src/assets/bankdrücken.jpg",
+                imgUrl: bankdrueckenImg,
                 weight: 5,
                 repeats: 12
             }

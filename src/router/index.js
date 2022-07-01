@@ -1,6 +1,6 @@
 import {
   createRouter,
-  createWebHistory
+  createWebHashHistory,
 } from 'vue-router';
 
 import DefaultLayout from '../layouts/DefaultLayout.vue';
@@ -63,7 +63,7 @@ const routes = [{
 }];
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes,
 });
 

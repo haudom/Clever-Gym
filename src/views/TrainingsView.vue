@@ -38,6 +38,8 @@ import { exercises, Statistics, totalTrainingDays, increaseTotalTraininDays } fr
 import AppView from '../components/AppView.vue';
 import AppCard from '../components/AppCard.vue';
 
+import initTrainingImg from "../assets/initTraining.jpg";
+
 //let amountExercises = 0;
 
 export default {
@@ -119,7 +121,7 @@ export default {
 
         this.exerciseName = "Good Job";
         this.exerciseDescription = "Du hast die heutige Übungen beendet. Weiter so!"
-        this.exerciseImgUrl = "/src/assets/initTraining.jpg";
+        this.exerciseImgUrl = initTrainingImg;
         this.exerciseWeight = 100;
         this.exerciseRepeats = 100;
       }
@@ -136,7 +138,7 @@ export default {
     training: [],
     exerciseName: "",
     exerciseDescription: "",
-    exerciseImgUrl: "/src/assets/initTraining.jpg",
+    exerciseImgUrl: initTrainingImg,
     exerciseWeight: 0,
     exerciseRepeats: 0,
 

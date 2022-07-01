@@ -1,13 +1,13 @@
 <template>
   <AppView bg-gray header="CleverGym">
     <template v-slot:action>
-      <router-link to="/optionen" class="settings-action">
+      <router-link :to="{ name: 'optionen' }" class="settings-action">
         <i class="fas fa-cog"></i>
       </router-link>
     </template>
 
     <b-card-group deck class="d-flex flex-column">
-      <router-link to="/training" style="text-decoration: none;">
+      <router-link :to="{ name: 'training' }" style="text-decoration: none;">
         <AppCard type="black" class="main-card" center>
           <h1>Starte Training</h1>
           <img src="../assets/liegestutz.png" class="img-trainingsbutton">
@@ -15,7 +15,7 @@
         </AppCard>
       </router-link>
 
-      <router-link to="/statistiken">
+      <router-link :to="{ name: 'statistiken' }">
         <AppCard type="white" class="main-card" center>
           <Statistik></Statistik>
         </AppCard>

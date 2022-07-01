@@ -4,14 +4,21 @@ import { computed } from 'vue';
 
 const route = useRoute();
 
-const $props = defineProps({
-  to: {
-    type: String,
-    required: true,
-  },
-});
+const $props = defineProps(["to"]);
 
-const active = computed(() => route.path === $props.to);
+const active = computed(() => {
+  if (typeof $props.to === "string") {
+    return route.path === $props.to;
+  }
+  if ($props.to.name) {
+    return route.name === $props.to.name;
+  }
+  if ($props.to.path) {
+    return route.path === $props.to.path;
+  }
+
+  return false;
+});
 </script>
 
 <template>

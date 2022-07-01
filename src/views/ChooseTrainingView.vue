@@ -21,7 +21,7 @@ const $props = defineProps({
 
 function addExercise(exercise) {
   // TODO 
-  exercises.find(elem => elem.id === $props.dayId).trainingsPlan.push({
+  exercises.find(elem => elem.id === $props.dayId)?.trainingsPlan.push({
     id: exercise.id,
     description: exercise.description,
     imgUrl: exercise.url,

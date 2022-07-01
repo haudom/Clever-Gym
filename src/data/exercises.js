@@ -1,3 +1,7 @@
+import liegeStutzImg from "../assets/liegestutz.png";
+import bankdrueckenImg from "../assets/bankdruecken.jpg";
+import fahrradFahrenImg from "../assets/muskuloeses-athletisches-bodybuilder-fitnessmodell-das-stationaeres-fahrrad-im-fitnessstudio-nahe-grossem-fenster-sitzt_91014-4230.webp";
+
 export class Exercise {
   /**
    * @param {object} opts 
@@ -24,19 +28,19 @@ export class Exercise {
 export const EXERCISES = [
   new Exercise({
     id: "liegestütz",
-    url: "/src/assets/liegestutz.png",
+    url: liegeStutzImg,
     name: "Liegestütz",
     description: "Irgendeine Beschreibung",
   }),
   new Exercise({
     id: "bankdrücken",
-    url: "/src/assets/bankdrücken.jpg",
+    url: bankdrueckenImg,
     name: "Bankdrücken",
     description: "Irgendeine Beschreibung",
   }),
   new Exercise({
     id: "fahrrad fahren",
-    url: "/src/assets/muskuloeses-athletisches-bodybuilder-fitnessmodell-das-stationaeres-fahrrad-im-fitnessstudio-nahe-grossem-fenster-sitzt_91014-4230.webp",
+    url: fahrradFahrenImg,
     name: "Fahrrad fahren",
     description: "Irgendeine Beschreibung",
   })

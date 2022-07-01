@@ -18,13 +18,13 @@ function getTransition(route) {
     </div>
 
     <AppTabGroup class="main-nav">
-      <AppTab to="/">
+      <AppTab :to="{ name: 'main' }">
         <i class="fa-solid fa-dumbbell"></i>
       </AppTab>
-      <AppTab to="/statistiken">
+      <AppTab :to="{ name: 'statistiken' }">
         <i class="fa-solid fa-chart-line"></i>
       </AppTab>
-      <AppTab to="/kalender">
+      <AppTab :to="{ name: 'kalender' }">
         <i class="fa-solid fa-calendar"></i>
       </AppTab>
     </AppTabGroup>
