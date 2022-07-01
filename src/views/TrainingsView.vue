@@ -23,6 +23,11 @@
         <button class="btn-swipe-btn" @click="exerciseRepeats--">-</button>
       </div>
     </AppCard>
+
+    <p>
+      Swipe links um Übung zu überspringen.<br>
+      Swipe hoch um Übung abzuschließen.
+    </p>
   </AppView>
 </template>
 
@@ -144,10 +149,6 @@ export default {
 </script>
 
 <style>
-.training-tmp-buttons {
-  text-align: center;
-}
-
 .btn-tmp-Swipe {
   width: calc(100% / 3);
 }

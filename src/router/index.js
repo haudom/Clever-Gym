@@ -49,8 +49,9 @@ const routes = [{
     meta: { viewIndex: 10 },
     component: OptionenView,
   }, {
-    path: 'exercise-picker',
+    path: 'exercise-picker/:weekId/:dayId',
     name: 'exercise-picker',
+    props: true,
     meta: { viewIndex: 10 },
     component: ChooseTrainingView,
   }, {
