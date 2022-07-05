@@ -10,14 +10,14 @@ export const exercises = [
         trainingsPlan: [
             {
                 id: "Liegestütz",
-                description: "Mach sie",
+                description: "Lege dich auf den Boden. Platziere deine Arme auf schulterhöhe. Drück dich mit einen Armen vom Boden weg. Lass dich langsam wieder richtug Boden sinken",
                 imgUrl: liegeStutzImg,
                 weight: 25,
                 repeats: 10
             },
             {
                 id: "Bankdrücken",
-                description: "Mach sie richtig!",
+                description: "Lege dich auf die Langhantelbank. Platziere deine Füße stabil auf dem Boden. Nimm die Langhantelstange aus der Halterung und lass sie langsam und kontrolliert auf deinen Brustskorb absinken. Drücke sie dann schnell und kontrolliert wieder hoch.",
                 imgUrl: bankdrueckenImg,
                 weight: 5,
                 repeats: 12
@@ -30,7 +30,7 @@ export const exercises = [
         trainingsPlan: [
             {
                 id: "Yoga",
-                description: "Dehn dich",
+                description: "Dehne deine Muskeln für eine gesunde Körperhaltung",
                 imgUrl: "https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg",
                 weight: 25,
                 repeats: 10

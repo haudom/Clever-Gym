@@ -9,25 +9,26 @@
     >
       <h2 style="margin-top: 5%;">{{ exerciseName }}</h2>
       <img v-bind:src="exerciseImgUrl" class="swipe-element-child">
-      <div class="swipe-element-child">{{ exerciseDescription }}</div>
 
-      <div class="btn-swipe">
-        <button class="btn-swipe-btn" @click="exerciseWeight++">+</button>
-        <h3 id="weight">{{ exerciseWeight }}</h3>
-        <button class="btn-swipe-btn" @click="exerciseWeight--">-</button>
-      </div>
+   
+<div class="swipe-element-child">{{ exerciseDescription }}</div>
 
-      <div class="btn-swipe">
-        <button class="btn-swipe-btn" @click="exerciseRepeats++">+</button>
-        <h3 id="repeat">{{ exerciseRepeats }}</h3>
-        <button class="btn-swipe-btn" @click="exerciseRepeats--">-</button>
+      <div class="aaa">
+        <div class="btn-swipe">
+          <button class="btn-swipe-btn" @click="exerciseWeight++">+</button>
+          <h3 id="weight">{{ exerciseWeight }}</h3>
+          <button class="btn-swipe-btn" @click="exerciseWeight--">-</button>
+        </div>
+
+        <div class="btn-swipe">
+          <button class="btn-swipe-btn" @click="exerciseRepeats++">+</button>
+          <h3 id="repeat">{{ exerciseRepeats }}</h3>
+          <button class="btn-swipe-btn" @click="exerciseRepeats--">-</button>
+        </div>
       </div>
+      
     </AppCard>
 
-    <p>
-      Swipe links um Übung zu überspringen.<br>
-      Swipe hoch um Übung abzuschließen.
-    </p>
   </AppView>
 </template>
 
@@ -111,6 +112,10 @@ export default {
     },
     swipeExerciseFinished() {
 
+
+      exercise[0].dataSet[totalTrainingDays - 1].weight = parseInt(this.exerciseWeight);
+      exercise[0].dataSet[totalTrainingDays - 1].sentence++;
+      exercise[0].dataSet[totalTrainingDays - 1].repeats = parseInt(this.exerciseRepeats);
       //Speichere neue Werte zu Widerholungen und zu Gewichten
       this.training[this.exerciseIndex].weight = parseInt(document.getElementById("weight").innerHTML);
       this.training[this.exerciseIndex].repeat = parseInt(document.getElementById("repeat").innerHTML);
@@ -151,6 +156,12 @@ export default {
 </script>
 
 <style>
+.aaa{
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  bottom: 50px;
+}
 .btn-tmp-Swipe {
   width: calc(100% / 3);
 }
@@ -173,5 +184,9 @@ export default {
 
 .swipe-area {
   height: calc(100% - 10vw - 5rem);
+  bottom: 20px;
+  left: 15px;
+  right: 15px;
+  position: absolute;
 }
 </style>
