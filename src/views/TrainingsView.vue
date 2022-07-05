@@ -6,27 +6,38 @@
       v-touch:swipe.left="swipeSeriesSkip" 
       v-touch:swipe.right="swipeSeriesFinished" 
       v-touch:swipe.top="swipeExerciseFinished"
+
+      v-if="this.exerciseIndex < this.training.length"
     >
       <h2 style="margin-top: 5%;">{{ exerciseName }}</h2>
       <img v-bind:src="exerciseImgUrl" class="swipe-element-child">
-
    
-<div class="swipe-element-child">{{ exerciseDescription }}</div>
+      <div class="swipe-element-child">{{ exerciseDescription }}</div>
 
       <div class="aaa">
         <div class="btn-swipe">
           <button class="btn-swipe-btn" @click="exerciseWeight++">+</button>
-          <h3 id="weight">{{ exerciseWeight }}</h3>
+          <h3 id="weight">{{ exerciseWeight }} kg</h3>
           <button class="btn-swipe-btn" @click="exerciseWeight--">-</button>
         </div>
 
         <div class="btn-swipe">
           <button class="btn-swipe-btn" @click="exerciseRepeats++">+</button>
-          <h3 id="repeat">{{ exerciseRepeats }}</h3>
+          <h3 id="repeat">{{ exerciseRepeats }} wd</h3>
           <button class="btn-swipe-btn" @click="exerciseRepeats--">-</button>
         </div>
       </div>
       
+    </AppCard>
+    <AppCard
+      center
+      class="swipe-area" 
+
+      v-else
+    >
+      <h2 style="margin-top: 5%;">Good Job!</h2>
+      <img src="../assets/initTraining.jpg" class="swipe-element-child">
+      <div class="swipe-element-child">Du hast die heutige Übungen beendet. Weiter so!</div>
     </AppCard>
 
   </AppView>
@@ -74,68 +85,52 @@ export default {
   },
   methods: {
     swipeSeriesFinished() {
-      if (this.exerciseIndex == -1)
+      if (this.exerciseIndex === -1)
         this.exerciseIndex = 0;
-      if (this.training.id = undefined)
-        return;
 
       //Statistics:
       const exercise = Statistics.filter(exerciseObj => {
-        return exerciseObj.id == this.training[this.exerciseIndex].id;
+        return exerciseObj.id === this.training[this.exerciseIndex].id;
       })
-      exercise[0].dataSet[totalTrainingDays - 1].weight = parseInt(this.exerciseWeight);
+      exercise[0].dataSet[totalTrainingDays - 1].weight = this.exerciseWeight;
       exercise[0].dataSet[totalTrainingDays - 1].sentence++;
-      exercise[0].dataSet[totalTrainingDays - 1].repeats = parseInt(this.exerciseRepeats);
-
+      exercise[0].dataSet[totalTrainingDays - 1].repeats = this.exerciseRepeats;
 
       this.exerciseName = this.training[this.exerciseIndex].id;
       this.exerciseDescription = this.training[this.exerciseIndex].description;
       this.exerciseImgUrl = this.training[this.exerciseIndex].imgUrl;
       this.exerciseWeight = this.training[this.exerciseIndex].weight;
       this.exerciseRepeats = this.training[this.exerciseIndex].repeats;
-
-
     },
     swipeSeriesSkip() {
+      const training = this.training;
 
-      const training = this.training; //HÄsslich aber Faulheit
-      const tmpExercise = training[this.exerciseIndex];
-      training[this.exerciseIndex] = training[training.length - 1];
-      training[training.length - 1] = tmpExercise;
+      training.push(training.shift());
 
       this.exerciseName = training[this.exerciseIndex].id;
       this.exerciseDescription = training[this.exerciseIndex].description;
       this.exerciseImgUrl = training[this.exerciseIndex].imgUrl;
       this.exerciseWeight = training[this.exerciseIndex].weight;
       this.exerciseRepeats = training[this.exerciseIndex].repeats;
-      this.training = training;
     },
     swipeExerciseFinished() {
+      const training = this.training;
 
 
-      exercise[0].dataSet[totalTrainingDays - 1].weight = parseInt(this.exerciseWeight);
-      exercise[0].dataSet[totalTrainingDays - 1].sentence++;
-      exercise[0].dataSet[totalTrainingDays - 1].repeats = parseInt(this.exerciseRepeats);
+      // exercise[0].dataSet[totalTrainingDays - 1].weight = parseInt(this.exerciseWeight);
+      // exercise[0].dataSet[totalTrainingDays - 1].sentence++;
+      // exercise[0].dataSet[totalTrainingDays - 1].repeats = parseInt(this.exerciseRepeats);
       //Speichere neue Werte zu Widerholungen und zu Gewichten
-      this.training[this.exerciseIndex].weight = parseInt(document.getElementById("weight").innerHTML);
-      this.training[this.exerciseIndex].repeat = parseInt(document.getElementById("repeat").innerHTML);
-
+      training[this.exerciseIndex].weight = this.exerciseWeight;
+      training[this.exerciseIndex].repeat = this.exerciseRepeats;
 
       this.exerciseIndex++;
-      if (this.exerciseIndex == this.training.length) {
 
-        this.exerciseName = "Good Job";
-        this.exerciseDescription = "Du hast die heutige Übungen beendet. Weiter so!"
-        this.exerciseImgUrl = initTrainingImg;
-        this.exerciseWeight = 100;
-        this.exerciseRepeats = 100;
-      }
-
-      this.exerciseName = exercises[0].trainingsPlan[this.exerciseIndex].id;
-      this.exerciseDescription = exercises[0].trainingsPlan[this.exerciseIndex].description;
-      this.exerciseImgUrl = exercises[0].trainingsPlan[this.exerciseIndex].imgUrl;
-      this.exerciseWeight = exercises[0].trainingsPlan[this.exerciseIndex].weight;
-      this.exerciseRepeats = exercises[0].trainingsPlan[this.exerciseIndex].repeats;
+      this.exerciseName = training[this.exerciseIndex].id;
+      this.exerciseDescription = training[this.exerciseIndex].description;
+      this.exerciseImgUrl = training[this.exerciseIndex].imgUrl;
+      this.exerciseWeight = training[this.exerciseIndex].weight;
+      this.exerciseRepeats = training[this.exerciseIndex].repeats;
     }
   },
   data: () => ({
